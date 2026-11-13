@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makisha | Personal Portfolio</title>
+
+    <style>
+        /* GENERAL STYLING */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ffffff;
+            color: #172033;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            background: #101b3d;
+            padding: 18px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #a78bfa;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* HOME SECTION */
+        .home {
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 60px 10%;
+            background: linear-gradient(
+                120deg,
+                #eeeaff,
+                #ffffff,
+                #e9e5ff
+            );
+        }
+
+        .home-content {
+            max-width: 550px;
+        }
+
+        .home-content h3 {
+            color: #6941d9;
+            font-size: 25px;
+        }
+
+        .home-content h1 {
+            font-size: 52px;
+            margin: 10px 0;
+            color: #172033;
+        }
+
+        .home-content h2 {
+            color: #6941d9;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .home-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #6941d9;
+            color: white;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #4925aa;
+            transform: translateY(-3px);
+        }
+
+        .profile-circle {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                #a78bfa,
+                #6941d9
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 75px;
+            font-weight: bold;
+            box-shadow: 0 15px 40px rgba(105,65,217,0.25);
+        }
+
+        /* COMMON SECTION */
+        .section {
+            padding: 75px 10%;
+            text-align: center;
+        }
+
+        .heading {
+            font-size: 36px;
+            margin-bottom: 35px;
+            color: #172033;
+        }
+
+        .heading span {
+            color: #6941d9;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            background: #faf9ff;
+        }
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07);
+        }
+
+        .about-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .about-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* SKILLS SECTION */
+        .skills-section {
+            background: #ffffff;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #f4f0ff;
+            padding: 30px 20px;
+            border-radius: 15px;
+            transition: 0.3s;
+            border: 1px solid #e7ddff;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(105,65,217,0.12);
+        }
+
+        .skill-card h3 {
+            color: #6941d9;
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .skill-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        /* PROJECT SECTION */
+        .projects-section {
+            background: #faf9ff;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 30px 22px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-card h3 {
+            color: #6941d9;
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .project-card p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .project-card span {
+            display: inline-block;
+            background: #eee8ff;
+            color: #6941d9;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            background: #ffffff;
+        }
+
+        .contact-section p {
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            margin: 25px 0;
+            line-height: 2;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #101b3d;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        /* TABLET RESPONSIVENESS */
+        @media (max-width: 900px) {
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .home {
+                gap: 30px;
+            }
+
+            .home-content h1 {
+                font-size: 42px;
+            }
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 600px) {
+
+            header {
+                padding: 18px 6%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background: #101b3d;
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .home {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 7%;
+            }
+
+            .home-content h1 {
+                font-size: 38px;
+            }
+
+            .home-content h2 {
+                font-size: 22px;
+            }
+
+            .profile-circle {
+                width: 190px;
+                height: 190px;
+                font-size: 55px;
+            }
+
+            .section {
+                padding: 55px 7%;
+            }
+
+            .heading {
+                font-size: 30px;
+            }
+
+            .skills-container,
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                padding: 25px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="navbar">
+
+            <h2 class="logo">MyPortfolio<span>.</span></h2>
+
+            <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="home" id="home">
+
+        <div class="home-content">
+
+            <h3>Hello, I'm</h3>
+
+            <h1>Makisha Rajasekaran</h1>
+
+            <h2>Computer Science Student</h2>
+
+            <p>
+                Welcome to my personal portfolio!
+                I am passionate about technology,
+                learning new skills and developing
+                creative solutions.
+            </p>
+
+            <a href="#about" class="btn">
+                Know More →
+            </a>
+
+        </div>
+
+        <div class="profile-circle">
+             <img src="C:\Users\ammum\OneDrive\Desktop\Pictures\download (1).jpg">
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+
+        <h2 class="heading">
+            About <span>Me</span>
+        </h2>
+
+        <div class="about-content">
+
+            <h3>Student & Aspiring Developer</h3>
+
+            <p>
+                I am a Computer Science Engineering student
+                interested in technology and web development.
+                I enjoy exploring new technologies, learning
+                programming languages and improving my skills.
+                My goal is to gain knowledge and build useful
+                real-world projects.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section skills-section" id="skills">
+
+        <h2 class="heading">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+                <div class="skill-icon">🌐</div>
+                <h3>HTML</h3>
+                <p>
+                    Creating the structure
+                    of web pages.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>CSS</h3>
+                <p>
+                    Designing attractive
+                    and responsive websites.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>JavaScript</h3>
+                <p>
+                    Adding interactive
+                    features to websites.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">☕</div>
+                <h3>Java</h3>
+                <p>
+                    Learning programming
+                    and OOP concepts.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects-section" id="projects">
+
+        <h2 class="heading">
+            My <span>Projects</span>
+        </h2>
+
+        <div class="projects-container">
+
+            <div class="project-card">
+
+                <h3>Personal Portfolio Website</h3>
+
+                <p>
+                    A responsive personal website
+                    that introduces me, my skills
+                    and projects.
+                </p>
+
+                <span>HTML | CSS | JavaScript</span>
+
+            </div>
+
+            <div class="project-card">
+
+                <h3>Interactive To-Do List</h3>
+
+                <p>
+                    A task management application
+                    where users can add, complete
+                    and delete daily tasks.
+                </p>
+
+                <span>HTML | CSS | JavaScript</span>
+
+            </div>
+
+            <div class="project-card">
+
+                <h3>Future Project</h3>
+
+                <p>
+                    Exploring new technologies
+                    and developing interesting
+                    projects.
+                </p>
+
+                <span>Learning | Development</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact-section" id="contact">
+
+        <h2 class="heading">
+            Contact <span>Me</span>
+        </h2>
+
+        <p>
+            Feel free to connect with me!
+        </p>
+
+        <div class="contact-info">
+
+            <p>Email:makisha0117@gmail.com</p>
+
+            <p>Location: Tamil Nadu, India</p>
+
+        </div>
+
+        <a href="mailto:makisha0117@gmail.com" class="btn">
+            Send Email →
+        </a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © <span id="year"></span>
+            Makisha Rajasekaran.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Mobile Navigation
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function() {
+
+            navLinks.classList.toggle("active");
+
+            const isOpen =
+                navLinks.classList.contains("active");
+
+            menuToggle.textContent =
+                isOpen ? "✕" : "☰";
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
+        });
+
+        // Close menu after clicking a link
+        const navItems =
+            document.querySelectorAll(".nav-links a");
+
+        navItems.forEach(function(item) {
+
+            item.addEventListener("click", function() {
+
+                navLinks.classList.remove("active");
+
+                menuToggle.textContent = "☰";
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+        // Automatic Current Year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
